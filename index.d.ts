@@ -3,10 +3,10 @@
 // Definitions by: Andrei Kurosh <https://github.com/impworks>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare class ClipboardJS {
+declare class Clipboard {
     constructor(
         selector: string | Element | NodeListOf<Element>,
-        options?: ClipboardJS.Options
+        options?: Clipboard.Options
     );
 
     /**
@@ -14,7 +14,7 @@ declare class ClipboardJS {
      * @param type Event type ('success' or 'error').
      * @param handler Callback function.
      */
-    on(type: "success" | "error", handler: (e: ClipboardJS.Event) => void): this;
+    on(type: "success" | "error", handler: (e: Clipboard.Event) => void): this;
     on(type: string, handler: (...args: any[]) => void): this;
 
     /**
@@ -28,7 +28,7 @@ declare class ClipboardJS {
     static isSupported(): boolean;
 }
 
-declare namespace ClipboardJS {
+declare namespace Clipboard {
     interface Options {
         /**
          * Overwrites default command ('cut' or 'copy').
@@ -50,7 +50,7 @@ declare namespace ClipboardJS {
          */
         text?(elem: Element): string;
 
-        container?(elem: Element): Element;
+        container?: HTMLElement;
     }
 
     interface Event {
@@ -61,6 +61,6 @@ declare namespace ClipboardJS {
     }
 }
 
-export = ClipboardJS;
+export = Clipboard;
 
-export as namespace ClipboardJS;
+export as namespace Clipboard;
